@@ -32,25 +32,27 @@
   display: none;
 }
 
-/* Style for page content */
 .content {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 14px;
   font-size: 22px;
-}
-
-/* Make the profile picture round */
-.avatar {
-  border-radius: 50%;
-}
-
-/* Add a text box next to the profile picture */
-.description {
-  background-color: lightgrey;
   align-items: center;
-  width: 1200;
-  height: 300;
+  justify-content: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+}
+
+.description {
+  flex: 1;
+  max-width: 600px;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 * {
@@ -238,4 +240,54 @@ tr:nth-child(even) {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Tablet screens (≤900px) */
+@media screen and (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    font-size: 18px;
+    width: 90%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  .slideshow-container {
+    max-width: 90%;
+  }
+}
+
+/* Mobile screens (≤600px) */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .description {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
